@@ -1,4 +1,5 @@
 require 'awesome_print'
+require_relative 'code'
 require_relative 'formatting'
 require_relative 'headers'
 require_relative 'links'
@@ -19,6 +20,7 @@ module MarkThisDown
       wiki = headers(wiki)
       ##wiki = links(wiki)
       wiki = lists(wiki)
+      wiki = code(wiki)
       ##wiki = tables(wiki)
       wiki
     end
