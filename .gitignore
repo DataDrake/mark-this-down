@@ -1,10 +1,12 @@
 *.gem
 *.rbc
+/.idea/**/*
 /.config
 /coverage/
 /InstalledFiles
 /pkg/
 /spec/reports/
+/test/**/*
 /test/tmp/
 /test/version_tmp/
 /tmp/
