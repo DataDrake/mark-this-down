@@ -15,8 +15,8 @@ module MarkThisDown
   module Parse
 
     def parse2( wiki )
-      ##wiki = formatting(wiki)
-      ##wiki = headers(wiki)
+      wiki = formatting(wiki)
+      wiki = headers(wiki)
       ##wiki = links(wiki)
       wiki = lists(wiki)
       ##wiki = tables(wiki)

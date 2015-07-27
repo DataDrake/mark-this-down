@@ -14,7 +14,6 @@ module MarkThisDown
         stack = []
         l = ''
         list.each do |e|
-          ap e
           e[0] = '' if e[0].nil?
           if(e[0].length)/2 + 1 < (stack.length)
             top = stack.pop
