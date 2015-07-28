@@ -1,4 +1,5 @@
 require 'awesome_print'
+require_relative 'blocks'
 require_relative 'code'
 require_relative 'formatting'
 require_relative 'headers'
@@ -16,12 +17,15 @@ module MarkThisDown
   module Parse
 
     def parse2( wiki )
+      wiki = blocks(wiki)
       wiki = formatting(wiki)
-      wiki = headers(wiki)
+      ##wiki = headers(wiki)
       ##wiki = links(wiki)
-      wiki = lists(wiki)
-      wiki = code(wiki)
       ##wiki = tables(wiki)
+      ##wiki = lists(wiki)
+      ##wiki = code(wiki)
+      ##wiki.delete!("\n")
+      ##wiki.gsub!(/((?<=>|\A)[^<]+(?=<|\z))/, '<p>\1</p>')
       wiki
     end
 

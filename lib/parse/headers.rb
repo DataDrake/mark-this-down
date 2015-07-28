@@ -1,5 +1,5 @@
-HEADER = /^([#]+)\s*([\w\s]*)\s*\n/
-ALT_HEADER = /(?:\A|\n)([^\n]+)\n([-=])\2{2,}/
+HEADER = /^([-#]{1,6}) ([^-#\n]+)[-#]*/
+ALT_HEADER = /(^.+)\n([-=]+)/
 HEADER_TYPE = {'=' => 1 , '-' => 2}
 
 module MarkThisDown
