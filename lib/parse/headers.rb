@@ -1,6 +1,7 @@
 HEADER = /^([-#]{1,6}) ([^-#\n]+)[-#]*/
-ALT_HEADER = /(^.+)\n([-=]+)/
+ALT_HEADER = /(^.+)\n([=\-])\2*/
 HEADER_TYPE = {'=' => 1 , '-' => 2}
+HORIZONTAL_BREAK = /^(([\-+*])\s?)\1+\2(?:[\t ])*$/
 
 module MarkThisDown
   module Parse
@@ -11,6 +12,7 @@ module MarkThisDown
       wiki.gsub!(ALT_HEADER) do
         "<h#{HEADER_TYPE[$2]}>#{$1}</h#{HEADER_TYPE[$2]}>"
       end
+      wiki.gsub!(HORIZONTAL_BREAK , '<hr/>')
       wiki
     end
   end

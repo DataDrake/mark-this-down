@@ -12,18 +12,21 @@ $media = 'repos'
 
 WIKI_OUTER = /(\A[^<]+|[^<>\n]+\z)/
 WIKI_INNER = /<\/[^>]*>\n([^<]+)</
+BREAK = /  $/
 
 module MarkThisDown
   module Parse
 
     def parse2( wiki )
       wiki = blocks(wiki)
+      ## Headers must occur before handling formatting because of HR conflict with Italics/Bold
+      wiki = headers(wiki)
       wiki = formatting(wiki)
-      ##wiki = headers(wiki)
       ##wiki = links(wiki)
-      ##wiki = tables(wiki)
-      ##wiki = lists(wiki)
+      wiki = tables(wiki)
+      wiki = lists(wiki)
       ##wiki = code(wiki)
+      wiki.gsub!(BREAK, '<br/>')
       ##wiki.delete!("\n")
       ##wiki.gsub!(/((?<=>|\A)[^<]+(?=<|\z))/, '<p>\1</p>')
       wiki

@@ -11,7 +11,6 @@ module MarkThisDown
         table = '<table><thead>'
         header = t.match(TABLE_HEADER)
         header[1].scan(TABLE_ROW) do |r|
-          ap r
           table = "#{table}<tr>"
           r[0].scan(TABLE_CELL) do |c|
             table = "#{table}<td>#{c[0]}</td>"
@@ -23,7 +22,6 @@ module MarkThisDown
         body[1].scan(TABLE_ROW) do |r|
           table = "#{table}<tr>"
           r[0].scan(TABLE_CELL) do |c|
-            ap c
             table = "#{table}<td>#{c[0]}</td>"
           end
           table = "#{table}</tr>"
