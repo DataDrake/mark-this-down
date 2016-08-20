@@ -1,4 +1,5 @@
 CODE = /```(\S*)\n([^`]*)```/
+CODE_BLOCK = //
 INLINE_CODE = /`([^`\n]+)`/
 
 module MarkThisDown
